@@ -8,6 +8,11 @@ Moving forward, I will consider merging only very small fixes directly into the 
 
 dx_hud is a FiveM HUD for ox_core or ESX Legacy.
 
+![](https://img.shields.io/github/downloads/m3ftwz/dx_hud/total?logo=github)
+![](https://img.shields.io/github/downloads/m3ftwz/dx_hud/latest/total?logo=github)
+![](https://img.shields.io/github/contributors/m3ftwz/dx_hud?logo=github)
+![](https://img.shields.io/github/v/release/m3ftwz/dx_hud?logo=github)
+
 ## Dependencies
 
 - [ox_lib](https://github.com/overextended/ox_lib)
