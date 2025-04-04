@@ -25,10 +25,6 @@
             <i id="ArmourIcon" class="fas fa-shield-alt"></i>
           </div>
 
-          <div id="StaminaIndicator" class="Icon">
-            <i id="StaminaIcon" class="fas fa-running"></i>
-          </div>
-
           <div id="HungerIndicator" class="Icon">
             <i id="HungerIcon" class="fas fa-hamburger"></i>
           </div>
@@ -41,6 +37,10 @@
             <i id="StressIcon" class="fas fa-brain"></i>
           </div>
 
+          <div id="PriorityIndicator" class="Icon">
+            <i id="PriorityIcon" class="fas fa-siren"></i>
+          </div>
+
           <div id="OxygenIndicator" class="Icon">
             <i id="OxygenIcon" class="fas fa-lungs"></i>
           </div>
@@ -49,18 +49,45 @@
             <i id="FuelIcon" class="fas fa-gas-pump"></i>
           </div>
 
+          <div id="PriorityGreenIndicator" class="IconGreen">
+            <b id="PriorityGreenIcon"><img src="assets/images/siren.png"></b>
+          </div>
+
+          <div id="PriorityRedIndicator" class="IconRed">
+            <b class="PriorityRedIcon"><img src="assets/images/siren.png"></b>
+          </div>
+
+          <div id="PriorityGreenIndicatorSheriff" class="IconGreenSheriff">
+            <b id="PriorityGreenIconSheriff"><img src="assets/images/siren.png"></b>
+          </div>
+
+          <div id="PriorityRedIndicatorSheriff" class="IconRedSheriff">
+            <b class="PriorityRedIconSheriff"><img src="assets/images/siren.png"></b>
+          </div>
+
           <div id="SpeedIndicator" class="Icon">
             <i id="SpeedIcon" class="fas fa-tachometer-alt"></i>
           </div>
 
+          <div id="StaminaIndicator" class="Icon">
+            <i id="StaminaIcon" class="fas fa-running"></i>
+          </div>
+          
+          <div class="seatbeltContainer">
           <i id="SeatbeltIcon" class="fas fa-user-slash outerIcon"></i>
-
+        </div>
+          <div class="timeContainer">
+          <div id="Time" class="outerIcon"></div>
+          </div>
           <div id="ID" class="outerIcon"></div>
+          <div id="Bank" class="outerIcon"></div>
+          <div id="Cash" class="outerIcon"></div>
+          <div id="Job" class="outerIcon"></div>
         </div>
       </div>
     </div>
     <div id="Logo">
-      <img src="assets/images/logo.png" />
+      <img src="assets/images/logo.png" width="100px" height="100px" />
     </div>
 
     <audio id="buckle" src="assets/sounds/buckle.ogg" preload></audio>
