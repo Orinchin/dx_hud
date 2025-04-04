@@ -2,11 +2,15 @@
 import Circle from "./circles.js";
 
 window.onload = (event) => {
-  fetch(`https://${GetParentResourceName()}/nuiReady`);
+  fetch(`https://orinchin_dxhud/nuiReady`);
 
   const Container = document.getElementById("Container");
   const Logo = document.getElementById("Logo");
   const ID = document.getElementById("ID");
+  const Bank = document.getElementById("Bank");
+  const Cash = document.getElementById("Cash");
+  const Job = document.getElementById("Job");
+  const Time = document.getElementById("Time");
 
   const Speed = document.getElementById("SpeedIndicator");
   const Fuel = document.getElementById("FuelIndicator");
@@ -18,6 +22,10 @@ window.onload = (event) => {
   const Hunger = document.getElementById("HungerIndicator");
   const Thirst = document.getElementById("ThirstIndicator");
   const Stress = document.getElementById("StressIndicator");
+  const Priority= document.getElementById("PriorityGreenIndicator");
+  const Priority2= document.getElementById("PriorityRedIndicator");
+  const PrioritySheriff= document.getElementById("PriorityGreenIndicatorSheriff");
+  const Priority2Sheriff= document.getElementById("PriorityRedIndicatorSheriff");
 
   const HealthIcon = document.getElementById("HealthIcon");
   const SpeedIcon = document.getElementById("SpeedIcon");
@@ -27,6 +35,8 @@ window.onload = (event) => {
   const HungerIcon = document.getElementById("HungerIcon");
   const ThirstIcon = document.getElementById("ThirstIcon");
   const StressIcon = document.getElementById("StressIcon");
+  const PriorityGreenIcon = document.getElementById("PriorityGreenIcon");
+  const PriorityRedIcon = document.getElementById("PriorityRedIcon");
 
   const Seatbelt = document.getElementById("SeatbeltIcon");
   const Buckle = document.getElementById("buckle");
@@ -37,6 +47,7 @@ window.onload = (event) => {
   window.addEventListener("message", function (event) {
     let action = event.data.action;
     let data = event.data.message;
+    var item = event.data;
 
     if (action == "toggleHud") {
       Container.style.display = data ? "flex" : "none";
@@ -49,9 +60,65 @@ window.onload = (event) => {
     if (action == "setPlayerId") {
       if (data) {
         ID.style.display = "block";
-        ID.textContent = "#" + data;
+        ID.textContent = "ID # " + data;
       } else {
         ID.style.display = "none";
+      }
+    }
+
+    if (action == "setPlayerBank") {
+      if (data) {
+        Bank.style.display = "block";
+        Bank.textContent = '$ ' + data;
+      } else {
+        Bank.textContent = '$ 0';
+      }
+    }
+
+    if (action == "setPlayerCash") {
+      if (data) {
+        Cash.style.display = "block";
+        Cash.textContent = '$ ' + data;
+      } else {
+        Cash.textContent = '$ 0';
+      }
+    }
+
+    if (action == "setPlayerTime") {
+      if (data) {
+        Time.style.display = "block";
+        Time.textContent = data;
+      } else {
+        Time.style.display = "none";
+      }
+    }
+
+    if (item !== undefined && item.type === "setPriority") {
+      if (item.display === true) {
+        Priority.style.display = "flex";
+        Priority2.style.display = "none";
+      } else {
+        Priority.style.display = "none";
+        Priority2.style.display = "flex";
+    }
+    }
+
+    if (item !== undefined && item.type === "setPrioritySheriff") {
+      if (item.display === true) {
+        PrioritySheriff.style.display = "flex";
+        Priority2Sheriff.style.display = "none";
+      } else {
+        PrioritySheriff.style.display = "none";
+        Priority2Sheriff.style.display = "flex";
+    }
+    }
+
+    if (action == "setPlayerJob") {
+      if (data) {
+        Job.style.display = "block";
+        Job.textContent = data;
+      } else {
+        Job.style.display = "none";
       }
     }
 
@@ -137,6 +204,13 @@ window.onload = (event) => {
         let fuel = data.fuel && data.fuel / 100;
 
         percSpeed > 1 && (percSpeed = 1);
+
+        if (speed >= 1) {
+          SpeedIcon.style.fontSize = "12px";
+      } else {
+          SpeedIcon.style.fontSize = "16px";
+      }
+
         percSpeed >= 0.01 && SpeedIcon.classList.remove("fa-tachometer-alt");
         percSpeed >= 0.01 && (SpeedIcon.textContent = Math.floor(speed));
         percSpeed < 0.01 && SpeedIcon.classList.add("fa-tachometer-alt");
@@ -223,6 +297,7 @@ window.onload = (event) => {
       Circle.ThirstIndicator.animate(data.thirst / 100);
       Circle.StressIndicator.animate(data.stress / 100, function () {
         Stress.style.display = data.stress <= 5 && "none";
+        Stress.style.display = data.stress == 0 && "flex";
       });
     }
 
