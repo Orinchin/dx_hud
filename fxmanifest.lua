@@ -23,6 +23,7 @@ shared_scripts {
 }
 
 client_scripts {
+	'client/cl_priority.lua',
 	'client/frameworks.lua',
 	'client/hud.lua',
 	'client/vehicle.lua',
@@ -32,6 +33,7 @@ client_scripts {
 }
 
 server_scripts {
+	'server/cl_priority.lua',
 	'server/seatbelt.lua'
 }
 
