@@ -1,3 +1,5 @@
+# ** MODIFIED VERSION OF DX HUD WITH PRIORITY STATUS**
+
 # ** DISCONTINUED / WON'T FIX **
 
 I want to express my gratitude for the support during the development of dx_hud. However, I've decided to discontinue its development as my interests have shifted. I'm now focusing on my real job and life goals. Thank you all for the great journey.
